@@ -1,0 +1,63 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+class LowArray
+{
+    private:
+        vector<double> v;
+        
+    public:
+    
+    //Constructor
+    LowArray(int max){
+        v.resize(max);
+    }
+    void setElement(int index,double value){
+        {
+            v[index] = value;
+        }
+    }
+    double getElement(int index){
+        return(v[index]);
+    }
+};
+
+int main() {
+    LowArray arr(100);
+    int ele = 10 ;
+    int j =0 ;
+    
+    
+    arr.setElement(0,77);
+    arr.setElement(1,99);
+    arr.setElement(2,44);
+    arr.setElement(3,55);
+    arr.setElement(4,22);
+    arr.setElement(5,88);
+    arr.setElement(6,11);
+    arr.setElement(7,00);
+    arr.setElement(8,26);
+    arr.setElement(9,33);
+    ele=10;
+    
+    int searchKey;
+    
+	// your code goes here
+	for (j=0;j<ele;j++){
+	    cout << arr.getElement(j) << " ";
+	}  
+	cout << endl;
+	searchKey = 26;
+	for (j=0;j<ele;j++){
+	    if(arr.getElement(j)==searchKey)
+	        break;
+	}      
+	   if(j == ele)     
+	        cout << "Cant Find" << searchKey << endl ;
+	   else
+	        cout << "Found" << searchKey << endl ;
+	
+    	
+	return 0;
+}

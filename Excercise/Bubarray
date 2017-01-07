@@ -1,0 +1,81 @@
+//Bubble Sort  - O(N^2)
+#include <iostream>
+#include <vector>
+using namespace std;
+
+
+class  ArrayBub
+{
+  private:
+    vector<double> v;
+    int nElems;
+    
+    void swap(int first, int second){
+        double temp = v[first];
+        v[first] = v[second];
+        v[second] = temp;
+    }
+  public:
+  //Constructor
+  ArrayBub(int max):nElems(0)
+  {
+      v.resize(max);
+  }
+  
+  void insert(double value){
+      v[nElems] =value;
+      nElems ++;
+  }
+  
+  void display(){
+      
+      for (int j=0 ;j<v.size();j++){
+          cout << v[j] << " ";
+      }
+      cout << endl;
+      
+  }
+  
+  void bubbleSort() //sort the array
+  {
+      int out ,in;
+      
+      for (out=v.size(); out > 1 ;out--){
+      
+        for (in=0;in<out;in++){
+            if(v[in]>v[in+1]){
+                swap(in,in +1);       
+            }
+            
+        }
+       display(); 
+    }
+        
+  }
+  
+};
+
+int main()
+{
+    int maxSize =10;
+    ArrayBub arr(maxSize);
+    
+    arr.insert(77); //insert 10 items
+    arr.insert(26);
+    arr.insert(44);
+    arr.insert(55);
+    arr.insert(22);
+    arr.insert(88);
+    arr.insert(11);
+    arr.insert(00);
+    arr.insert(66);
+    arr.insert(33);
+    
+    //display the elements
+    arr.display();
+    arr.bubbleSort();
+    cout << "Sorted Array" << endl;
+    arr.display();
+    
+    return 0;
+}
